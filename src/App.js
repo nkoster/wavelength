@@ -1,11 +1,14 @@
 import React from 'react'
 import './App.css'
+import WaveLength from './components/WaveLength'
+import { StateProvider } from './context/State'
 
 const App = () => {
   return (
     <div className='App'>
-      <h3>App</h3>
-      <img src='../assets/blacksquare.svg' />
+      <StateProvider>
+        <WaveLength />
+      </StateProvider>
     </div>
   )
 }
