@@ -1,5 +1,5 @@
 export const initialState = {
-  frequency: 145.3, waveLength: 17.32, velocityFactor: 100
+  frequency: 145.3, waveLength: 17.32050808070670837, velocityFactor: 100
 }
 
 export const StateReducer = (state = initialState, action) => {
