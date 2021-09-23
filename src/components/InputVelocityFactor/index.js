@@ -39,24 +39,22 @@ const InputVelocityFactor = _ => {
       <Card style={CardStyle}>
         <Box sx={{ width: '100%' }}>
           <Typography style={TypographyStyle}>
-            Velocity Factor VF {velocityFactor} %
+            Velocity Factor VF {<Input
+            value={velocityFactor}
+            size='small'
+            style={{width: '60px', margin: '10px'}}
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            inputProps={{
+              step: 1,
+              min: 1,
+              max: 100,
+              type: 'number',
+              'aria-labelledby': 'input-slider',
+            }}
+          />} %
           </Typography>
           <Grid container spacing={2} alignItems='center'>
-            <Grid item>
-              <Input
-                value={velocityFactor}
-                size='small'
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                inputProps={{
-                  step: 1,
-                  min: 1,
-                  max: 100,
-                  type: 'number',
-                  'aria-labelledby': 'input-slider',
-                }}
-              />
-            </Grid>
             <Grid item xs>
               <Slider
                 value={typeof velocityFactor === 'number' ? velocityFactor : 100}
