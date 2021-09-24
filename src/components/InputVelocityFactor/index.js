@@ -36,7 +36,7 @@ const InputVelocityFactor = _ => {
 
   return (
     <div style={InputStyle}>
-      <Card style={CardStyle}>
+      <Card style={CardStyle} elevation={4}>
         <Box sx={{ width: '100%' }}>
           <Typography style={TypographyStyle}>
             Velocity Factor VF {<Input
@@ -76,7 +76,7 @@ const InputStyle = {
 }
 
 const CardStyle = {
-  margin: '10px',
+  margin: '20px',
   padding: '20px'
 }
 

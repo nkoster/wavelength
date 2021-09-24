@@ -21,11 +21,11 @@ const flexRow = {
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  paddingTop: '50px'
+  paddingTop: '30px'
 }
 
 const flexColumn = {
-  width: '800px',
+  width: '450px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
