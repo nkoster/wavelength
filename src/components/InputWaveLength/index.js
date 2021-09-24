@@ -7,17 +7,17 @@ import {Typography} from '@material-ui/core'
 const InputWaveLength = _ => {
 
   const dispatch = StateDispatch()
-  const { waveLength } = State()
+  const { waveLength, velocityFactor } = State()
 
   const updateInput = evt => {
-    updateWaveLength(dispatch, evt.target.value)
+    updateWaveLength(dispatch, Number(evt.target.value) > 0 ? evt.target.value : '')
   }
 
-  const calulatedFrequency = 300000000 / waveLength / 1000000
+  const calulatedFrequency = 300000000 / waveLength / 1000000 / (velocityFactor / 100)
 
   return (
     <div style={InputStyle}>
-      <Card style={CardStyle}>
+      <Card style={CardStyle} elevation={4}>
         <Typography style={TypographyStyle}>
           <i style={{fontSize: '22px', paddingRight: '10px'}}>ƒ</i>
           {calulatedFrequency} MHz
@@ -25,8 +25,8 @@ const InputWaveLength = _ => {
         <TextField
           type='number'
           value={waveLength}
-          label={<div style={{marginTop: '-6px'}}>
-            <i style={{fontSize: '22px', paddingRight: '10px'}}>λ</i>
+          label={<div style={{marginTop: '-6px', fontSize: '22px', marginRight: '-58px'}}>
+            <i style={{paddingRight: '10px'}}>λ</i>
             Wave length in meters
           </div>}
           variant='outlined'
@@ -45,7 +45,7 @@ const InputStyle = {
 }
 
 const CardStyle = {
-  margin: '10px',
+  margin: '20px',
   padding: '20px'
 }
 
