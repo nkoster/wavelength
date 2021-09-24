@@ -1,8 +1,6 @@
 import React from 'react'
-import Card from '@material-ui/core/Card'
-import TextField from '@material-ui/core/TextField'
-import { StateDispatch, State, updateFrequency } from '../../context/State'
-import {Typography} from '@material-ui/core'
+import {Card, TextField, Typography} from '@material-ui/core'
+import {StateDispatch, State, updateFrequency} from '../../context/State'
 
 const InputFrequency = _ => {
 
