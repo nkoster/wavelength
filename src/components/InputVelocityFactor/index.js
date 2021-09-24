@@ -1,15 +1,8 @@
 import React from 'react'
-import Card from '@material-ui/core/Card'
-import { styled } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import Slider from '@material-ui/core/Slider'
-import MuiInput from '@material-ui/core/Input'
+import {Card, styled, Grid, Typography, Slider, Input} from '@material-ui/core'
+import {StateDispatch, State, updateVelocityFactor} from '../../context/State'
 
-import { StateDispatch, State, updateVelocityFactor } from '../../context/State'
-
-const Input = styled(MuiInput)`
+const MyInput = styled(Input)`
   width: 42px
 `
 
@@ -37,33 +30,31 @@ const InputVelocityFactor = _ => {
   return (
     <div style={InputStyle}>
       <Card style={CardStyle} elevation={4}>
-        <Box sx={{ width: '100%' }}>
-          <Typography style={TypographyStyle}>
-            Velocity Factor VF {<Input
-            value={velocityFactor}
-            size='small'
-            style={{width: '60px', margin: '10px'}}
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            inputProps={{
-              step: 1,
-              min: 1,
-              max: 100,
-              type: 'number',
-              'aria-labelledby': 'input-slider',
-            }}
-          />} %
-          </Typography>
-          <Grid container spacing={2} alignItems='center'>
-            <Grid item xs>
-              <Slider
-                value={typeof velocityFactor === 'number' ? velocityFactor : 100}
-                onChange={handleSliderChange}
-                aria-labelledby='input-slider'
-              />
-            </Grid>
+        <Typography style={TypographyStyle}>
+          Velocity Factor VF {<MyInput
+          value={velocityFactor}
+          size='small'
+          onChange={handleInputChange}
+          onBlur={handleBlur}
+          inputProps={{
+            step: 1,
+            min: 1,
+            max: 100,
+            type: 'number',
+            style: {width: '60px', margin: '10px'},
+            'aria-labelledby': 'input-slider',
+          }}
+        />} %
+        </Typography>
+        <Grid container spacing={2} alignItems='center'>
+          <Grid item xs>
+            <Slider
+              value={typeof velocityFactor === 'number' ? velocityFactor : 100}
+              onChange={handleSliderChange}
+              aria-labelledby='input-slider'
+            />
           </Grid>
-        </Box>
+        </Grid>
       </Card>
     </div>
   )
