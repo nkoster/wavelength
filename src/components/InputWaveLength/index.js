@@ -24,6 +24,11 @@ const InputWaveLength = _ => {
         </Typography>
         <TextField
           type='number'
+          inputProps={{
+            step: 0.001,
+            min: 0.001,
+            type: 'number'
+          }}
           value={waveLength}
           label={<div style={{marginTop: '-6px', fontSize: '22px', marginRight: '-58px'}}>
             <i style={{paddingRight: '10px'}}>λ</i>
