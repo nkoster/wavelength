@@ -11,6 +11,21 @@ const InputFrequency = _ => {
     updateFrequency(dispatch, evt.target.value)
   }
 
+  const updateInputBlur = evt => {
+    if (evt.target.value === '') {
+      return
+    }
+    evt.target.setAttribute('type', 'text')
+    if (evt.target.value.indexOf('.') === -1) {
+      evt.target.value = evt.target.value + '.000'
+    }
+    while (evt.target.value.indexOf('.') > evt.target.value.length - 4) {
+      evt.target.value = evt.target.value + '0'
+    }
+    updateFrequency(dispatch, evt.target.value)
+    evt.target.setAttribute('type', 'number')
+  }
+
   const calculatedWaveLength = 300000000 /
     (frequency * 1000000) * (velocityFactor / 100)
 
@@ -23,7 +38,11 @@ const InputFrequency = _ => {
         </Typography>
         <TextField
           type='number'
-          inputProps={{ min: 0 }}
+          inputProps={{
+            step: 0.001,
+            min: 0.001,
+            type: 'number'
+          }}
           value={frequency}
           label={<div style={{marginTop: '-6px', fontSize: '22px', marginRight: '-46px'}}>
             <i style={{paddingRight: '10px'}}>ƒ</i>
@@ -31,6 +50,7 @@ const InputFrequency = _ => {
           </div>}
           variant='outlined'
           onChange={updateInput}
+          onBlur={updateInputBlur}
           style={InputStyle}
         />
       </Card>
